@@ -194,7 +194,7 @@ function download_component() {
 
             elif [ "$curlpkg" == "true" ];then
                 show_message "using curl to download $4"
-                # curl will complain about SSL certificate has expired. So, I added 'curl --insecure $3 -o $1' instead of the next line
+                # curl will complain that SSL certificate has expired. So, I added 'curl --insecure $3 -o $1' instead of the next line
                 # curl $3 -o $1
                 curl --insecure $3 -o $1
             else
