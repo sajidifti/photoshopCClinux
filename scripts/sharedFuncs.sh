@@ -176,7 +176,7 @@ function download_component() {
                 show_message "\033[1;36m$4\e[0m detected"
                 return 0
             else
-                show_message "md5 is not match"
+                show_message "md5 does not match"
                 rm $1 
             fi
         else   
@@ -195,8 +195,9 @@ function download_component() {
             elif [ "$curlpkg" == "true" ];then
                 show_message "using curl to download $4"
                 # curl will complain that SSL certificate has expired. So, I added 'curl --insecure $3 -o $1' instead of the next line
-                # curl $3 -o $1
-                curl --insecure $3 -o $1
+                curl $3 -o $1
+                # curl --insecure $3 -o $1
+                # Changed it back
             else
                 show_message "using wget to download $4"
                 wget --no-check-certificate "$3" -P "$CACHE_PATH"
